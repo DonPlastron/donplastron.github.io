@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head> <!-- head tag: contains metadata and links to stylesheets, fonts, etc. -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mijn Blog</title>
+<link rel="icon" type="image/x-icon" href="img/icon.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= BASIS ================= */
+
+:root { /*define general fonts and colors here */
+    --bg: #fdf8f3;
+    --accent: #b08968;
+    --dark: #3e2f26;
+    --soft: #7f6757;
+    --card: #ffffff;
+}
+
+body { /* style for body tag (=<body></body> = (visible elements)) */
+    margin: 0;
+    background: var(--bg);
+    font-family: 'Inter', sans-serif;
+    color: var(--dark);
+    position:relative; /* relative position (doesn't move when scrolling): allows absolute positioning of child elements (like nav and sidebar) */
+}
+
+/* Fade animatie */
+.fade {
+    animation: fadeIn 1s ease;
+}
+@keyframes fadeIn {
+    from {opacity:0; transform:translateY(10px);}
+    to {opacity:1; transform:translateY(0);}
+}
+
+/* ================= NAVIGATION BAR ================= */
+
+nav { /* Style voor nav tag (= tag used for a series of navigation links (= navigation bar)) */
+    position: fixed; /* fixed position: stays in place when scrolling */
+    top: 0;
+    width: 100%;
+    background: rgba(253,248,243,0.9);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 25px 0;
+    border-bottom: 1px solid #eadfd6;
+    z-index: 1000;
+}
+
+nav a { /* Style for a tag (= anchor element (=link)) inside nav tag (= individual navigationlinks) */
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    position: relative;
+}
+
+nav a::after { /* Style for string after every nav link (underline effect) */
+    content: "";
+    position: absolute; /* fixed position relative to parent*/
+    width: 0%;
+    height: 2px;
+    bottom: -6px;
+    left: 50%;
+    background: var(--accent);
+    transition: 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover::after { /* Style for string after every nav link on hover (underline effect) */
+    width: 100%;
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar { /* style definition starts with . : class definition (= style identifier) */
+    position: fixed;
+    left: -290px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background: white;
+    box-shadow: 5px 0 20px rgba(0,0,0,0.1);
+    padding: 20px;
+    transition: 0.4s;
+    z-index: 2000;
+    overflow-y: auto;
+}
+
+.sidebar.open { /* style for when sidebar is open */
+    left: 0;
+}
+
+.sidebar h3 {
+    margin-top: 30px;
+}
+
+.sidebar a { /* style for a tag within sidebar (links in sidebar) */
+    display: block;
+    margin: 8px 0;
+    cursor: pointer;
+    color: var(--soft);
+}
+
+.menu-btn {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 3000;
+}
+
+/* ================= LAYOUT ================= */
+
+.container {
+    margin-top: 160px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+}
+
+/* ================= GRID ================= */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 naast elkaar, elk gebruikt 1fr (1 deel van de beschikbare ruimte) (hetzelfde als 1fr 1fr 1fr 1fr)*/
+    gap: 30px;
+    padding: 40px;
+}
+
+.grid-item {
+    background: var(--card);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: 0.4s ease;
+    cursor: pointer;
+}
+
+.grid-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.08);
+}
+
+.grid-item img { /* style for img tag within grid-item class (images in the grid) */
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.overlay {
+    padding: 15px;
+    font-family: 'Playfair Display', serif;
+}
+
+/* ================= DETAIL PAGINA ================= */
+
+.detail-text {
+    text-align: left; /* more space for text */
+}
+
+.detail-image img{
+    float:right;
+    width: 400px;
+    margin-left:20px;
+    margin-right:20px;
+    border-radius: 20px;
+
+}
+
+@media(max-width:900px){ /* media query for responsive design: do only 2 columns for screens smaller than 900px (tablets and phones) */
+    .grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+.hidden { display:none; }
+
+</style>
+</head>
+<body>
+
+<div class="menu-btn" onclick="toggleSidebar()">☰</div><!-- div tag: division: divides page into sections -->
+
+<div class="sidebar" id="sidebar">
+    <br> <!-- line break -->
+    <h3 onclick="showHobby()" style="cursor: pointer;">Hobby's</h3>
+    <div id="sidebarHobby"></div> <!-- div tag with id: dynamically generate sidebar content later via javascript (see render() function) -->
+
+    <h3 onclick="showFilms()" style="cursor: pointer;">Films</h3>
+    <div id="sidebarFilms"></div>
+</div>
+
+<nav>
+<a onclick="showHome()">Home</a>
+<a onclick="showHobby()">Hobby's</a>
+<a onclick="showFilms()">Films</a>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="container fade"> <!-- 2 different classes (container & fade) assigned to div, divided by space -->
+<h1>Welkom</h1>
+<img src="img/daphne.jpg" height="400">
+<p>enlo ik ben dafenu en dit is mijn blog.</p>
+</div>
+
+<!-- HOBBY PAGINA -->
+<div id="hobbyPage" class="hidden container">
+<h1>Mijn Hobby's</h1>
+<div class="grid" id="hobbyGrid"></div>
+</div>
+
+<!-- FILM PAGINA -->
+<div id="filmPage" class="hidden container">
+<h1>Films</h1>
+<div class="grid" id="filmGrid"></div>
+</div>
+
+<!-- DETAIL PAGINA -->
+<div id="detailPage" class="hidden container">
+<h1 id="detailTitle"></h1>
+
+<div class="detail-image">
+    <img id="detailImage">
+</div>
+<div class="detail-text">
+    <p id="detailText"></p>
+</div>
+
+</div>
+
+<script> /* javascript tag for interactivity and dynamic content generation */
+
+/* ================= DATA ================= */
+/*
+Dit deel voegt nieuwe hobby's/films toe.
+title = naam van hobby/film (komt in titel, sidebar en op detailpagina)
+text = tekstje dat op detailpagina komt
+    - Formatting via HTML formatting (https://www.w3schools.com/html/html_formatting.asp)
+    - Andere soorten formatting zijn makkelijk te vinden door "format ... html" te googelen
+image = pad naar afbeelding van icoontje
+detailImage = pad naar afbeelding op detailpagina (indien leeg: wordt zelfde foto als image)
+*/
+
+let data = {
+    hobbies: [
+        {title:"Fotografie", text:"hier komt jouw tekstje dan", image:"https://picsum.photos/400?1", detailImage:"https://picsum.photos/800?11"},
+        {title:"Naaien", text:"Naaien😏", image:"img/naaien.jpg", detailImage:"https://picsum.photos/800?12"},
+        {title:"Poker", text:`Poker is een kaartspel dat beschouwd wordt als een gelukspel maar ook veel tactiek bevat.
+Het doel van het spel is om uiteindelijk de beste combinatie van 5 kaarten (de beste hand) te hebben. Op deze pagina zal ik eerst poker in het algemeen uitleggen (met een specifieke focus op de Texas Hold'em variant), en op het einde mijn persoonlijke ervaringen met poker delen.
+<h2>Pokerhanden</h2>
+<img src="img/poker/pokerhands.webp" height="400" class="main-image" style="float:left; margin-right:10px;">
+<p>Links staan alle mogelijke combinaties van beste (1) tot slechtste (10). Belangrijk is dat enkel de beste hand (combinatie van 5 kaarten) telt. Dus als de gemeenschapskaarten bijvoorbeeld al een straat vormen, maakt het niet uit dat speler 1 een paar heeft, en speler 2 twee paar, want de beste combinatie voor beide van hun is een straat, waardoor de ronde neerkomt op gelijkspel.</p>
+<h2>Categorieën</h2>
+<h3>Gemeenschapskaart</h3>
+<p>Bij gemeenschapskaartpoker, krijgen alle spelers eigen kaarten, maar er liggen ook kaarten in het midden die door alle spelers kunnen gebruikt worden om hun hand te maken. De bekendste variant is Texas Hold'em, die ik hier uitgebreid zal uitleggen.</p>
+<h4>Texas Hold'em</h4>
+<h5> Verloop van het spel </h5>
+<h6>Kaarten delen (pre-flop)</h6>
+<p> 
+    Een willekeurige speler krijgt de dealerchip. Deze speler geeft iedereen 2 kaarten (met de klok mee, 1 kaart per keer, beginnend met de speler links van de dealer). 
+    De speler links van de dealer is de small blind. Deze zet verplicht de helft van een afgesproken minimuminzet in. 
+    De speler links daarvan is de big blind. Deze zet verplicht de volledige minimuminzet in. 
+    Nadat iedereen zijn kaarten heeft, begint de eerste inzetronde. Deze begint bij de speler links van de big blind, en gaat met de klok mee. 
+    In deze ronde kunnen spelers kiezen om te folden (niet meedoen met deze ronde), callen (gelijk maken aan de huidige inzet) of raisen (verhogen).
+    De big blind heeft de minimuminzet al ingezet, dus deze kan kiezen om te checken (niet verhogen, maar wel in de ronde blijven) zolang er nog geen verhoging is geweest.
+    Als iedereen behalve 1 speler heeft gefold, wint die speler automatisch de pot. Als er nog meerdere spelers over zijn na deze ronde, gaat het spel verder.
+</p>
+<h6>Flop</h6>
+<p>
+    Nadat iedereen is overeengekomen over de inzet, legt de dealer 1 kaart weg (verbranden) en 3 kaarten open in het midden van de tafel (de flop). Hierna volgt een nieuwe inzetronde, analoog aan de eerste, maar deze keer begint de speler links van de dealer.
+</p>
+<h6>Turn</h6>
+<p>
+    Als iedereen opnieuw is overeengekomen over de inzet, verbrandt de dealer deze keer 1 kaart en legt er 1 open naast de vorige 3 (de turn). Er volgt opnieuw een inzetronde, idem aan de vorige.
+</p>
+<h6>River</h6>
+<p>
+    Als iedereen opnieuw is overeengekomen over de inzet, verbrandt de dealer deze keer 1 kaart en legt er 1 open naast de vorige 3 (de river). Er volgt opnieuw een inzetronde, idem aan de vorige.
+</p>
+<h6>Showdown</h6>
+<p>
+    Als de finale inzetronde is afgelopen, moet iedereen zijn kaarten laten zien. Als iemand in de laatste ronde heeft verhoogd, toont deze speler zijn kaarten als eerste. Anders toont de speler links van de dealer als eerste, daarna tonen de andere spelers hun kaarten met de klok mee. De speler met de beste hand wint de pot. Als er een gelijkspel is, wordt de pot gelijk verdeeld over de winnende spelers.
+</p>
+<p>
+    Als iemand gedurende het spel al zijn chips heeft ingezet (all-in), maar er nog meerdere spelers over zijn, wordt er een side pot gemaakt, die alle bijkomende verhogingen zal bevatten. De speler die all-in is kan alleen de main pot winnen, terwijl de andere spelers ook de side pot kunnen winnen.
+</p>
+<h3>Draw</h3>
+<p>
+    De spelers krijgen allemaal een aantal kaarten die enkel zij kunnen zien. Ze moeten dus hun hand maken met deze kaarten.
+    Bij 5-card draw, krijgen spelers 5 kaarten, en kunnen ze er tijdens een inzetronde een aantal weggooien en vervangen door even veel nieuwe kaarten van de dealer.
+</p>
+<h3>Stud</h3>
+<p>
+    Stud poker is gelijkaardig aan draw poker, maar moeten de spelers een deel van hun persoonlijke kaarten openleggen.
+    Bij 5 card stud, begint elke speler met 1 gesloten en 1 open kaart. Er volgen 3 inzetrondes, waarna elke speler telkens nog een open kaart krijgt. Ten slotte volgt nog 1 inzetronde en de showdown.
+</p>
+<h2>
+    Chips
+</h2>
+<p>
+    De chips is de munteenheid van poker. Hieronder is de conventie die wij gebruikten qua waarde en hoeveel je per soort krijgt in het begin van het spel. <br>
+   Kleur chip \t\t Waarde chip \t\t Starthoeveelheid <br>
+   <img src=\"img/poker/witte_chip.webp\" height=\"30\" style=\"display:inline-block;\"> : \t €1 \t 10 <br>
+   <img src=\"img/poker/rode_chip.webp\" height=\"30\" style=\"display:inline-block;\"> : \t €5 \t 5<br>
+   <img src=\"img/poker/blauwe_chip.webp\" height=\"30\" style=\"display:inline-block;\"> : \t €10 \t 4 <br>
+   <img src=\"img/poker/groene_chip.webp\" height=\"30\" style=\"display:inline-block;\"> : \t €25 \t 1 <br>
+   <img src=\"img/poker/zwarte_chip.webp\" height=\"30\" style=\"display:inline-block;\"> : \t €100 \t 0 <br>
+
+</p>`, image:"img/poker/poker.jpg", detailImage:""},
+        {title:"Vogelspotten", text:"Spot de vogel.", image:"img/vogelspot.jpeg", detailImage:"https://picsum.photos/800?14"}
+    ],
+    films: [
+        {title:"Inception", text:"", image:"https://picsum.photos/400?5", detailImage:""},
+        {title:"Interstellar", text:"", image:"https://picsum.photos/400?6", detailImage:""},
+        {title:"Titanic", text:"", image:"https://picsum.photos/400?7", detailImage:""},
+        {title:"Franse films", text:"Mijn supercoole bf is zijn Frans aan het verbeteren door Franse films te kijken. Hij gebruikt deze pagina van mijn website om ze op te lijsten: <br> <ul> <li>Prête-moi ta main</li><li>Les Roseaux Sauvages</li></ul>"
+        , image:"img/franse_siemen.jfif", detailImage:""}
+    ]
+};
+
+/* ================= RENDER ================= */
+
+render();
+
+function render(){
+
+// Hobby grid
+let hobbyGrid=document.getElementById("hobbyGrid");
+hobbyGrid.innerHTML="";
+data.hobbies.forEach((h,i)=>{
+let div=document.createElement("div");
+div.className="grid-item fade";
+div.innerHTML=`<img src="${h.image}"><div class="overlay">${h.title}</div>`;
+div.onclick=()=>showDetail("hobby",i);
+hobbyGrid.appendChild(div);
+});
+
+// Film grid
+let filmGrid=document.getElementById("filmGrid");
+filmGrid.innerHTML="";
+data.films.forEach((f,i)=>{
+let div=document.createElement("div");
+div.className="grid-item fade";
+div.innerHTML=`<img src="${f.image}"><div class="overlay">${f.title}</div>`;
+div.onclick=()=>showDetail("film",i);
+filmGrid.appendChild(div);
+});
+
+// Sidebar
+let sh=document.getElementById("sidebarHobby");
+sh.innerHTML="";
+data.hobbies.forEach((h,i)=>{
+sh.innerHTML+=`<a onclick="showDetail('hobby',${i})">${h.title}</a>`;
+});
+
+let sf=document.getElementById("sidebarFilms");
+sf.innerHTML="";
+data.films.forEach((f,i)=>{
+sf.innerHTML+=`<a onclick="showDetail('film',${i})">${f.title}</a>`;
+});
+
+}
+
+/* ================= NAVIGATIE ================= */
+
+function hideAll(){
+home.classList.add("hidden");
+hobbyPage.classList.add("hidden");
+filmPage.classList.add("hidden");
+detailPage.classList.add("hidden");
+}
+
+function showHome(){ hideAll(); home.classList.remove("hidden"); }
+function showHobby(){ hideAll(); hobbyPage.classList.remove("hidden"); }
+function showFilms(){ hideAll(); filmPage.classList.remove("hidden"); }
+
+function showDetail(type,i){
+hideAll();
+let item = type==="hobby" ? data.hobbies[i] : data.films[i];
+detailTitle.innerText=item.title;
+detailText.innerHTML=item.text || "";
+detailImage.src=item.detailImage || item.image;
+detailPage.classList.remove("hidden");
+}
+
+function toggleSidebar(){
+sidebar.classList.toggle("open");
+}
+
+</script>
+</body>
+</html>
