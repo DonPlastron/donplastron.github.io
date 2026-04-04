@@ -1,6 +1,6 @@
 ## Pagina toevoegen
 1. Voeg een icoontje toe in het grid:
-  a. ga naar code.js
+a. ga naar code.js
   b. in de data variabele, voeg een object toe in de juiste array (hobby/films) (zie voorbeeldjes)
 2. Maak de pagina
   a. Kopieer "pagetemplate.html" naar juiste folder
