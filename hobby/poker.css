@@ -1,0 +1,36 @@
+.intro{
+  height: 200px;
+}
+
+.poker-hands{
+  float:left; 
+  margin-right:10px;
+  height: 400px;
+  border-radius: 5px;
+}
+
+.poker-hand-text{
+  height:400px
+}
+
+.texas{
+  margin: 0 100px;
+}
+
+table{
+  border-spacing: 50px 0;
+}
+
+h1{
+  margin-top:0;
+  font-weight: bold;
+}
+
+h2, h3, h4{
+  font-family: 'Playfair Display', serif;
+}
+
+th h4 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
