@@ -1,11 +1,53 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head> <!-- head tag: contains metadata and links to stylesheets, fonts, etc. -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mijn Blog</title>
+<link rel="icon" type="image/x-icon" href="..//img/icon.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css"> <!-- import styles --> 
+
+</head>
+<body>
+<!-- Sidebar -->
+<div class="menu-btn" onclick="toggleSidebar()">☰</div><!-- div tag: division: divides page into sections -->
+<div class="sidebar" id="sidebar">
+  <br> <!-- line break -->
+  <h3 onclick="showPage('hobby')" style="cursor: pointer;">Hobby's</h3>
+  <div id="sidebarHobby"></div> <!-- div tag with id: dynamically generate sidebar content later via javascript (see render() function) -->
+
+  <h3 onclick="showPage('film')" style="cursor: pointer;">Films</h3>
+  <div id="sidebarFilms"></div>
+</div>
+
+<!-- Navigatiebalk-->
+<nav>
+<a onclick="showPage('home')">Home</a>
+<a onclick="showPage('hobby')">Hobby's</a>
+<a onclick="showPage('film')">Films</a>
+</nav>
+
+<div class="container fade">
+<h1>Poker</h1>
+
+<div class="detail-image">
+  <img src="../img/poker/poker.jpg">
+</div>
+<div class="detail-text">
 Poker is een kaartspel dat beschouwd wordt als een gelukspel maar ook veel tactiek bevat.
 Het doel van het spel is om uiteindelijk de beste combinatie van 5 kaarten (de beste hand) te hebben. Op deze pagina zal ik eerst poker in het algemeen uitleggen (met een specifieke focus op de Texas Hold'em variant), en op het einde mijn persoonlijke ervaringen met poker delen.
 <h2>Pokerhanden</h2>
-<img src="img/poker/pokerhands.webp" height="400" class="main-image" style="float:left; margin-right:10px;">
-<p>Links staan alle mogelijke combinaties van beste (1) tot slechtste (10). Belangrijk is dat enkel de beste hand (combinatie van 5 kaarten) telt. Dus als de gemeenschapskaarten bijvoorbeeld al een straat vormen, maakt het niet uit dat speler 1 een paar heeft, en speler 2 twee paar, want de beste combinatie voor beide van hun is een straat, waardoor de ronde neerkomt op gelijkspel.</p>
+<img src="../img/poker/pokerhands.webp" height="400" class="main-image" style="float:left; margin-right:10px;">
+<p>
+  Links staan alle mogelijke combinaties van beste (1) tot slechtste (10). Belangrijk is dat enkel de beste hand (combinatie van 5 kaarten) telt. Dus als de gemeenschapskaarten bijvoorbeeld al een straat vormen, maakt het niet uit dat speler 1 een paar heeft, en speler 2 twee paar, want de beste combinatie voor beide van hun is een straat, waardoor de ronde neerkomt op gelijkspel.
+</p>
 <h2>Categorieën</h2>
 <h3>Gemeenschapskaart</h3>
-<p>Bij gemeenschapskaartpoker, krijgen alle spelers eigen kaarten, maar er liggen ook kaarten in het midden die door alle spelers kunnen gebruikt worden om hun hand te maken. De bekendste variant is Texas Hold'em, die ik hier uitgebreid zal uitleggen.</p>
+<p>
+  Bij gemeenschapskaartpoker, krijgen alle spelers eigen kaarten, maar er liggen ook kaarten in het midden die door alle spelers kunnen gebruikt worden om hun hand te maken. De bekendste variant is Texas Hold'em, die ik hier uitgebreid zal uitleggen.
+</p>
 <h4>Texas Hold'em</h4>
 <h5> Verloop van het spel </h5>
 <h6>Kaarten delen (pre-flop)</h6>
@@ -45,10 +87,25 @@ Het doel van het spel is om uiteindelijk de beste combinatie van 5 kaarten (de b
 <h3>Stud</h3>
 <p>
     Stud poker is gelijkaardig aan draw poker, maar moeten de spelers een deel van hun persoonlijke kaarten openleggen.
+    Bij 5 card stud, begint elke speler met 1 gesloten en 1 open kaart. Er volgen 3 inzetrondes, waarna elke speler telkens nog een open kaart krijgt. Ten slotte volgt nog 1 inzetronde en de showdown.
 </p>
-<h1>
+<h2>
     Chips
-</h1>
+</h2>
 <p>
-   <img src="img/poker/witte_chip.webp" height="50" style="float:left;"> : €1 <br>
+    De chips is de munteenheid van poker. Hieronder is de conventie die wij gebruikten qua waarde en hoeveel je per soort krijgt in het begin van het spel. <br>
+   Kleur chip \t\t Waarde chip \t\t Starthoeveelheid <br>
+   <img src="../img/poker/witte_chip.webp" height="30" style="display:inline-block;"> : \t €1 \t 10 <br>
+   <img src="../img/poker/rode_chip.webp" height="30" style="display:inline-block;"> : \t €5 \t 5<br>
+   <img src="../img/poker/blauwe_chip.webp" height="30" style="display:inline-block;"> : \t €10 \t 4 <br>
+   <img src="../img/poker/groene_chip.webp" height="30" style="display:inline-block;"> : \t €25 \t 1 <br>
+   <img src="../img/poker/zwarte_chip.webp" height="30" style="display:inline-block;"> : \t €100 \t 0 <br>
+
 </p>
+</div>
+</div>
+</body>
+<script src="../code.js"> /* javascript tag for interactivity and dynamic content generation */
+</script>
+</body>
+</html>
