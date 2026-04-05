@@ -101,6 +101,7 @@ function showPage(page) { //"home", "hobby" or "film"
   } else { // We are on different page
     // Navigate to the correct page
     window.location.href = baseUrl + "index.html?page=" + page;
+    render();
   }
 }
 
