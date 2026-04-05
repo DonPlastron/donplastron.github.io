@@ -28,6 +28,7 @@ let data = {
 const url = new URL(window.location.href)
 const match = url.pathname.match(/^(.*?Blog\/)/);
 const baseUrl = match ? match[1] : "";
+console.log(baseUrl);
 
 
 render();
