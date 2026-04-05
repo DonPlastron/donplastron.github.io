@@ -32,7 +32,7 @@ render();
 function render(){
   let pathAddendum = "";
   // if url contains http: github pages => href = only part after base url
-  const nestingAmount = baseUrl.match("github") ? url.href.split("/").length - 1 : url.href.split("/").length - baseUrl.split("/").length;
+  const nestingAmount = url.href.split("/").length - baseUrl.split("/").length;
   
   if (nestingAmount === 0) {
     
