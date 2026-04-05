@@ -28,14 +28,13 @@ let data = {
 const url = new URL(window.location.href)
 const match = url.href.match(/^(.*?Blog\/)/);
 const baseUrl = match ? match[1] : url.origin + "/";
-console.log(url.href);
-console.log(baseUrl);
+
 render();
 
 function render(){
-  // check which page we are on
   let pathAddendum = "";
-  const nestingAmount =url.href.split("/").length - baseUrl.split("/").length;
+  // if url contains http: github pages => href = only part after base url
+  const nestingAmount = baseUrl.match("http") ? url.href.split("/").length - baseUrl.split("/").length : url.href.split("/").length - 1;
   console.log("render")
   if (nestingAmount === 0) {
     
