@@ -35,6 +35,8 @@ function render(){
   // check which page we are on
   let pathAddendum = "";
   const nestingAmount =url.pathname.split("/").length - baseUrl.split("/").length;
+  console.log(url.pathname);
+  console.log(baseUrl);
   if (nestingAmount === 0) {
     
     if (url.searchParams.get("page")) {
