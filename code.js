@@ -25,8 +25,8 @@ let data = {
 
 /* ================= RENDER ================= */
 
-
-const match = window.location.href.match(/^(.*?Blog\/)/);
+const url = new URL(window.location.href)
+const match = url.pathname.match(/^(.*?Blog\/)/);
 const baseUrl = match ? match[1] : "";
 
 
@@ -35,18 +35,17 @@ render();
 function render(){
   // check which page we are on
   let pathAddendum = "";
-  if (window.location.pathname.includes("index.html")) {
-    const url = new URL(window.location.href);
-    if (url.toString().includes("index.html")) {
-      if (url.searchParams.get("page")) {
-        showPage(url.searchParams.get("page"));
-      }
-      else { 
-          showPage("home");
-      }
+  const nestingAmount =url.pathname.split("/").length - baseUrl.split("/").length;
+  if (nestingAmount === 0) {
+    
+    if (url.searchParams.get("page")) {
+      showPage(url.searchParams.get("page"));
+    }
+    else { 
+        showPage("home");
     }
   
-  console.log("pathAddendum: " + pathAddendum);
+  
     // Hobby grid
     let hobbyGrid=document.getElementById("hobbyGrid");
     hobbyGrid.innerHTML="";
