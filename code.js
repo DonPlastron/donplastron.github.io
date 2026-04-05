@@ -28,15 +28,15 @@ let data = {
 const url = new URL(window.location.href)
 const match = url.pathname.match(/^(.*?Blog\/)/);
 const baseUrl = match ? match[1] : url.origin + "/";
-
+console.log(url.pathname);
+console.log(baseUrl);
 render();
 
 function render(){
   // check which page we are on
   let pathAddendum = "";
   const nestingAmount =url.pathname.split("/").length - baseUrl.split("/").length;
-  console.log(url.pathname);
-  console.log(baseUrl);
+  console.log("render")
   if (nestingAmount === 0) {
     
     if (url.searchParams.get("page")) {
