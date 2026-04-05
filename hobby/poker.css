@@ -1,5 +1,5 @@
 .intro{
-  height: 200px;
+  min-height: 200px;  
 }
 
 .poker-hands{
@@ -9,8 +9,14 @@
   border-radius: 5px;
 }
 
+@media (max-width: 750px) {
+  .poker-hands{
+    width: 450px;
+  }
+}
+
 .poker-hand-text{
-  height:400px
+  min-height:400px
 }
 
 .texas{

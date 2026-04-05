@@ -2,15 +2,13 @@
 /*
 Dit deel voegt nieuwe hobby's/films toe.
 title = naam van hobby/film (komt in titel, sidebar en op detailpagina; html bestand moet dan titel.html zijn in juiste folder)
-text = tekstje dat op detailpagina komt
-    - Formatting via HTML formatting (https://www.w3schools.com/html/html_formatting.asp)
-    - Andere soorten formatting zijn makkelijk te vinden door "format ... html" te googelen
 image = pad naar afbeelding van icoontje
 */
 
 let data = {
   hobbies: [
-      {title:"Fotografie", image:"https://picsum.photos/400?1"},
+    {title:"Skiën", image:"img/ski.jpg"},
+    {title:"Fotografie", image:"https://picsum.photos/400?1"},
       {title:"Naaien", image:"img/naaien.jpg"},
       {title:"Poker", image:"img/poker/poker.jpg"},
       {title:"Vogelspotten", image:"img/vogelspot.jpeg"}
@@ -34,8 +32,8 @@ render();
 function render(){
   let pathAddendum = "";
   // if url contains http: github pages => href = only part after base url
-  const nestingAmount = baseUrl.match("http") ? url.href.split("/").length - baseUrl.split("/").length : url.href.split("/").length - 1;
-  console.log("render")
+  const nestingAmount = baseUrl.match("github") ? url.href.split("/").length - 1 : url.href.split("/").length - baseUrl.split("/").length;
+  
   if (nestingAmount === 0) {
     
     if (url.searchParams.get("page")) {

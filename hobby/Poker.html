@@ -31,20 +31,22 @@
 </nav>
 
 <div class="container fade">
-<h1>Poker</h1>
+<h1 id="pageTitle"></h1>
 
 <div class="detail-image">
   <img src="../img/poker/poker.jpg">
 </div>
+
 <div class="detail-text">
   <div class="intro">
+    
 Poker is een kaartspel dat beschouwd wordt als een gelukspel maar ook veel tactiek bevat.
 Het doel van het spel is om uiteindelijk de beste combinatie van 5 kaarten (de beste hand) te hebben. Op deze pagina zal ik eerst poker in het algemeen uitleggen (met een specifieke focus op de Texas Hold'em variant), en op het einde mijn persoonlijke ervaringen met poker delen.
   </div>
 <h2>Pokerhanden</h2>
 <img src="../img/poker/pokerhands.webp"class="poker-hands">
 <div class="poker-hand-text">
-  Links staan alle mogelijke combinaties van beste (1) tot slechtste (10). Belangrijk is dat enkel de beste hand (combinatie van 5 kaarten) telt. Dus als de gemeenschapskaarten bijvoorbeeld al een straat vormen, maakt het niet uit dat speler 1 een paar heeft, en speler 2 twee paar, want de beste combinatie voor beide van hun is een straat, waardoor de ronde neerkomt op gelijkspel.
+  In deze afbeelding staan alle mogelijke combinaties van beste (1) tot slechtste (10). Belangrijk is dat enkel de beste hand (combinatie van 5 kaarten) telt. Dus als de gemeenschapskaarten bijvoorbeeld al een straat vormen, maakt het niet uit dat speler 1 een paar heeft, en speler 2 twee paar, want de beste combinatie voor beide van hun is een straat, waardoor de ronde neerkomt op gelijkspel.
 </div>
 <h2>Categorieën</h2>
 <p>
@@ -139,6 +141,9 @@ Het doel van het spel is om uiteindelijk de beste combinatie van 5 kaarten (de b
 </div>
 </body>
 <script src="../code.js"> /* javascript tag for interactivity and dynamic content generation */
+</script>
+<script>
+  document.getElementById('pageTitle').innerText = document.location.pathname.toString().split('/').pop().replace(".html", "");
 </script>
 </body>
 </html>

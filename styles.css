@@ -109,14 +109,14 @@ nav a:hover::after { /* Style for string after every nav link on hover (underlin
 /* ================= LAYOUT ================= */
 
 .container {
-    margin: 100px 0;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px 50px 20px 50px; 
-    text-align: center;
-    background-color: #f9eadd;
-    border-radius: 30px;
+  margin: 100px 0;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 50px 20px 50px; 
+  text-align: center;
+  background-color: #f9eadd;
+  border-radius: 30px;
 }
 
 h1 {
@@ -180,3 +180,8 @@ h1 {
 }
 
 .hidden { display:none; }
+
+.introtekstje {
+    text-align:justify;
+    
+}

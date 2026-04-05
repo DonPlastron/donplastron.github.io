@@ -31,7 +31,7 @@
 
 <!-- Pagina inhoud -->
 <div class="container fade">
-<h1>Titel</h1>
+<h1 id="pageTitle"></h1>
 
 <div class="detail-image">
   <img src="pad/naar/afbeelding.jpg">
@@ -43,5 +43,8 @@
 </div>
 </body>
 <script src="../code.js"></script>
+<script>
+  document.getElementById('pageTitle').innerText = document.location.pathname.toString().split('/').pop().replace(".html", "");
+</script>
 </body>
 </html>
