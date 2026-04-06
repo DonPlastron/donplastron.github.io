@@ -44,7 +44,7 @@
 </body>
 <script src="../code.js"></script>
 <script>
-  document.getElementById('pageTitle').innerText = document.location.pathname.toString().split('/').pop().replace(".html", "");
+  document.getElementById('pageTitle').innerText = document.location.pathname.toString().split('/').pop().replace(".html", "").replace(/%20/g, " ");
 </script>
 </body>
 </html>

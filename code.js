@@ -14,7 +14,7 @@ let data = {
       {title:"Vogelspotten", image:"img/vogelspot.jpeg"}
     ],
     films: [
-        {title:"A Beautiful Mind", image:"https://picsum.photos/400?5"},
+        {title:"A Beautiful Mind", image:"img/a beautiful mind.jpg"},
         {title:"Ace Venture: Pet Detective", image:"https://picsum.photos/400?6"},
         {title:"An Affair to Remember", image:"https://picsum.photos/400?7"},
         {title:"Franse films", image:"img/franse_siemen.jfif"}

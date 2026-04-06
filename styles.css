@@ -164,6 +164,10 @@ h1 {
     text-align: justify;
 }
 
+.detail-text h2, .detail-text h3, .detail-text h4 {
+  font-family: 'Playfair Display', serif;
+}
+
 .detail-image img{
     float:right;
     width: 100%;
