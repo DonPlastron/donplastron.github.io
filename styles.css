@@ -183,6 +183,10 @@ h1 {
 
 }
 
+.gilmore-ref{
+  max-width: 800px;
+}
+
 
 @media(max-width:900px){ /* media query for responsive design: do only 2 columns for screens smaller than 900px (tablets and phones) */
     .grid{

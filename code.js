@@ -15,7 +15,7 @@ let data = {
     ],
     films: [
         {title:"A Beautiful Mind", image:"img/a beautiful mind.jpg"},
-        {title:"Ace Venture: Pet Detective", image:"https://picsum.photos/400?6"},
+        {title:"Ace Ventura, Pet Detective", image:"img/ace ventura.jpg"}, // komma ipv dubbelpunt
         {title:"An Affair to Remember", image:"https://picsum.photos/400?7"},
         {title:"Franse films", image:"img/franse_siemen.jfif"}
     ]
