@@ -161,12 +161,13 @@ h1 {
 /* ================= DETAIL PAGINA ================= */
 
 .detail-text {
-    text-align: left; /* more space for text */
+    text-align: justify;
 }
 
 .detail-image img{
     float:right;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     margin-left:20px;
     margin-right:20px;
     border-radius: 20px;
@@ -184,4 +185,38 @@ h1 {
 .introtekstje {
     text-align:justify;
     
+}
+
+/* ================= PROGRESS BAR ================= */
+.progress-container {
+  width: 100%;
+  max-width: 400px;
+  height: 30px;
+  background-color: #eee;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+  margin: 20px auto;
+  position:relative;
+}
+
+.progress-percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  color: #333; /* always visible */
+  text-shadow: 1px 0 #fff, -1px 0 #fff, 0 1px #fff, 0 -1px #fff;
+  pointer-events: none;
+}
+
+.progress-bar {
+  height:100%;
+  width: 0%;
+  background: var(--dark);/*linear-gradient(90deg, var(--dark), #d07916);*/
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  transition: width 0.6s ease; /* smooth animation */
 }

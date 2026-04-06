@@ -14,9 +14,9 @@ let data = {
       {title:"Vogelspotten", image:"img/vogelspot.jpeg"}
     ],
     films: [
-        {title:"Inception", image:"https://picsum.photos/400?5"},
-        {title:"Interstellar", image:"https://picsum.photos/400?6"},
-        {title:"Titanic", image:"https://picsum.photos/400?7"},
+        {title:"A Beautiful Mind", image:"https://picsum.photos/400?5"},
+        {title:"Ace Venture: Pet Detective", image:"https://picsum.photos/400?6"},
+        {title:"An Affair to Remember", image:"https://picsum.photos/400?7"},
         {title:"Franse films", image:"img/franse_siemen.jfif"}
     ]
 };
@@ -64,6 +64,7 @@ function render(){
       div.href=`film/${f.title}.html`;
       filmGrid.appendChild(div);
     });
+    updateProgress(data);
   } else{
     pathAddendum = "../";
   }
@@ -105,4 +106,15 @@ function showPage(page) { //"home", "hobby" or "film"
 
 function toggleSidebar(){
 sidebar.classList.toggle("open");
+}
+
+function updateProgress(data) {
+  const max = 462; // define what "100%" means
+  const count = data.films.length -1; // -1 want franse films
+
+  let percentage = Math.min((count / max) * 100, 100);
+  percentage = Math.round(percentage);
+
+  document.getElementById("progressBar").style.width = percentage + "%";
+  document.getElementById("progressPercentage").textContent = percentage + "%";
 }

@@ -5,14 +5,9 @@
 .poker-hands{
   float:left; 
   margin-right:10px;
-  height: 400px;
+  width: 100%;
+  max-width: 650px;
   border-radius: 5px;
-}
-
-@media (max-width: 750px) {
-  .poker-hands{
-    width: 450px;
-  }
 }
 
 .poker-hand-text{
@@ -39,4 +34,10 @@ h2, h3, h4{
 th h4 {
   margin-top: 0;
   margin-bottom: 5px;
+}
+
+@media (max-width: 750px) {
+  .texas{
+    margin: 0 20px;
+  }
 }
