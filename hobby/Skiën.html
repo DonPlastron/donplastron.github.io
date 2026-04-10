@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head> <!-- head tag: contains metadata and links to stylesheets, fonts, etc. -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mijn Blog</title>
+<link rel="icon" type="image/x-icon" href="../img/icon.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css"> <!-- import styles --> 
+
+</head>
+<body>
+<!-- Sidebar -->
+<div class="menu-btn" onclick="toggleSidebar()">☰</div><!-- div tag: division: divides page into sections -->
+<div class="sidebar" id="sidebar">
+  <br> <!-- line break -->
+  <h3 onclick="showPage('hobby')" style="cursor: pointer;">Hobby's</h3>
+  <div id="sidebarHobby"></div>
+
+  <h3 onclick="showPage('film')" style="cursor: pointer;">Films</h3>
+  <div id="sidebarFilms"></div>
+</div>
+
+<!-- Navigatiebalk-->
+<nav>
+<a onclick="showPage('home')">Home</a>
+<a onclick="showPage('hobby')">Hobby's</a>
+<a onclick="showPage('film')">Films</a>
+</nav>
+
+<!-- Pagina inhoud -->
+<div class="container fade">
+<h1 id="pageTitle"></h1>
+
+<div class="detail-image">
+  <img style="max-width: 500px;" src="../img/ski.jpg">
+</div>
+
+<div class="detail-text">
+
+  Hallo bloglezertjes <br>
+
+  Mijn 1ste hobby dat ik heb uitgeprobeerd in 2026 was skiën🕺. Tijdens de lesvrije week ben ik met Siemen en Andreas V naar ‘La Plagne’ geweest in Frankrijk. Ik ben voor deze skireis 1 week in Duitsland gaan skiën toen ik 13/14 jaar was en ook 1 keer naar een indoorski geweest aka ik had nog ni veel ervaring. Siemen was 2 jaar geleden op skireis geweest en Andreas had zijn eigen skilatten en materiaal en ging wel meerdere keren op een jaar gaan skiën. Met de ervaren jongens ging ik met een bang hartje mee op de skiliften en volgde ze naar beneden. De 1ste skidag was ni zo’n leuke dag. Het begon goed op de blauwe pistes, maar mijn skibotten🎿 zaten heel strak aan mijn kuiten waardoor ik heel veel moeite moest doen om mijn kuiten te gebruiken en da ook veel pijn deed op het einde van de dag. Daarnaast had ik nog een slechte skibril🤓. Ik was ook heel dicht bij een afgrond gevallen waardoor ik schrik had opgelopen voor de rest van de dag. Ik ben rond 14u al naar ons hotel geskied🎿 want ik was het beu… Daarna was het après-ski, maar mss lag het aan de organisatie, want da was ook gene vettn🤰. Maja wij hebben ook ni meer dan 1 pintje🍺 gedronken dus mss lag het aan ons. Daarna hebben we lekker gekookt en lekker vroeg in ons bedje🛌🏿 gegaan voor de volgende skidag&#129761;. Ik ben die dag mijn skiën gaan inwisselen en heb een reserveskibril van Andreas geleend en die dag vond ik het skiën veeel leuker🎉. Uiteindelijk heb ik echt nog kunnen genieten van de verschillende pistes. Ik heb alle kleurencodes geprobeerd van groen tot zwart en ook een fun piste met een kleine schans en ,met uitzondering van een paar enge rode, vond ik ze allemaal heel leuk! De leukste pistes waten voor mij de hoge bovenaan de berg (glacier), die ene rechts waar ik echt supersnel ging en de zwarte dat eig een blauwe was met weinig sneeuw. Over het algemeen vond ik skiën echt heel leuk om te doen! Wel intensief en heel duur jammer genoeg. Dus het zal geen hobby worden jammergenoeg, want na die reis ben ik toch wel 1ktje lichter💸.
+  
+</div>
+</div>
+</body>
+<script src="../code.js"></script>
+<script>
+  document.getElementById('pageTitle').innerText = document.location.pathname.toString().split('/').pop().replace(".html", "").replace(/%20/g, " ").replace(/%C3%AB/g, "ë");
+</script>
+</body>
+</html>
