@@ -18,6 +18,12 @@ let data = {
         {title:"Ace Ventura, Pet Detective", image:"img/ace ventura.jpg"}, // komma ipv dubbelpunt
         {title:"An Affair to Remember", image:"https://picsum.photos/400?7"},
         {title:"Animal House", image:"img/Animal House.jpg"},
+        {title:"Back to the Future", image:"img/back2thefuture.jpg"},
+        {title:"Bambi", image:"img/bambi.jpeg"},
+        {title:"Basic Instinct", image:"img/basic instinct.webp"},
+        {title:"Blue lagoon", image:"img/blue lagoon.webp"},
+        {title:"Breakfast at Tiffany's", image:"img/breakfast-at-tiffanys.jpg"},
+        {title:"Bright Eyes", image:"img/bright eyes.jpg"},
         {title:"Franse films", image:"img/franse_siemen.jfif"}
     ]
 };

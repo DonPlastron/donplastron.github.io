@@ -9,7 +9,6 @@
   - Kopieer "pagetemplate.html" naar juiste folder
 
   - Verander de naam naar de naam die je invulde als titel in de vorige stap
-  - Zet het pad naar de standaard afbeelding die je wilt ipv "pad/naar/afbeelding.jpg" (gwn die div wegoen als je geen foto wilt daar)
   - Vul de inhoud aan in plaats van "Hier komt de inhoud in html opmaak"
 
 <br>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head> <!-- head tag: contains metadata and links to stylesheets, fonts, etc. -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mijn Blog</title>
+<link rel="icon" type="image/x-icon" href="../img/icon.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css"> <!-- import styles --> 
+
+</head>
+<body>
+<!-- Sidebar -->
+<div class="menu-btn" onclick="toggleSidebar()">☰</div><!-- div tag: division: divides page into sections -->
+<div class="sidebar" id="sidebar">
+  <br> <!-- line break -->
+  <h3 onclick="showPage('hobby')" style="cursor: pointer;">Hobby's</h3>
+  <div id="sidebarHobby"></div>
+
+  <h3 onclick="showPage('film')" style="cursor: pointer;">Films</h3>
+  <div id="sidebarFilms"></div>
+</div>
+
+<!-- Navigatiebalk-->
+<nav>
+<a onclick="showPage('home')">Home</a>
+<a onclick="showPage('hobby')">Hobby's</a>
+<a onclick="showPage('film')">Films</a>
+</nav>
+
+<!-- Pagina inhoud -->
+<div class="container fade">
+<h1 id="pageTitle"></h1>
+
+<div class="detail-image">
+  <img id="detailImage">
+</div>
+
+<div class="detail-text">
+  De kinderen Emmeline en Richard en de scheepskok Paddy stranden na een schipbreuk op een tropisch eiland. Paddy geeft de kinderen twee lessen mee. De eerste is een verbod de andere kant van het eiland te betreden, aangezien inheemse mensen daar aan hun afgoden offeren. De tweede is een verbod op het eten van een bepaald soort bessen, "anders ga je slapen en word je niet meer wakker". Hij noemt ze ook de "nooit-meer-wakker-worden-bessen". Paddy is een onbehouwen zeebonk die te veel drinkt en uiteindelijk verdrinkt wanneer hij stomdronken de zee ingaat, waardoor de kinderen zichzelf moeten zien te redden. 
+
+De kinderen groeien op in totale onwetendheid van de rest van de wereld en begrijpen niets van zaken als seksualiteit. Emmeline raakt in paniek als ze voor het eerst ongesteld raakt. Emotionele gevoelens en fysieke veranderingen rijzen als ze pubers worden en verliefd worden op elkaar. Ze ontdekken seks en uiteindelijk raakt Emmeline zwanger, hoewel ze in het geheel niet beseft dat ze een kind gaat krijgen. Uiteindelijk wordt er een zoontje geboren, die ze Paddy noemen. Ze leren de kleine Paddy onder andere zwemmen, vissen en zelfs honkballen. 
+
+Door een ongelukkige samenloop van omstandigheden verliest het koppel als ze met hun zoontje in de sloep zitten beide roeispanen en drijven ze af naar open zee. Daar blijkt dat de kleine Paddy, inmiddels een peuter, de verboden bessen heeft meegenomen en er een paar heeft doorgeslikt. Wetend dat er geen hoop meer is verdeelt Richard de overgebleven bessen in twee porties. Hij en Emmeline eten de bessen en wachten, met Paddy, op de bodem van de boot op hun dood. 
+
+Enkele uren later worden de drie door het schip van Richards vader opgepikt die naar Richard en Emmeline al geruime tijd op zoek was. Ze zijn buiten bewustzijn, maar alle drie in leven. 
+</div>
+</div>
+</body>
+<script src="../code.js"></script>
+<script>
+  document.getElementById('pageTitle').innerText = document.location.pathname.toString().split('/').pop().replace(".html", "").replace(/%20/g, " ").replace(/%C3%AB/g, "ë");
+  document.getElementById('detailImage').src = "../" + data.films.find(film => film.title === document.getElementById('pageTitle').innerText).image;
+</script>
+</body>
+</html>
