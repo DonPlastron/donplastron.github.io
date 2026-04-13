@@ -6,12 +6,12 @@
   float:left; 
   margin-right:10px;
   width: 100%;
-  max-width: 650px;
+  max-width: 400px;
   border-radius: 5px;
 }
 
 .poker-hand-text{
-  min-height:400px
+  min-height:583px
 }
 
 .texas{
