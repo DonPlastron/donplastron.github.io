@@ -38,15 +38,14 @@
 </div>
 
 <div class="detail-text">
-  Hier komt de inhoud in html opmaak (https://www.w3schools.com/html/html_formatting.asp)
-  <img src="../img/references.png" class="gilmore-ref">
+  Hier komt de inhoud in html opmaak
 </div>
 </div>
 </body>
 <script src="../code.js"></script>
 <script>
   document.getElementById('pageTitle').innerText = document.location.pathname.toString().split('/').pop().replace(".html", "").replace(/%20/g, " ").replace(/%C3%AB/g, "ë");
-  document.getElementById('detailImage').src = "../" + data.films.find(film => film.title === document.getElementById('pageTitle').innerText).image;
+  document.getElementById('detailImage').src = "../" + data.hobbies.find(hobby => hobby.title === document.getElementById('pageTitle').innerText).image;
 </script>
 </body>
 </html>

@@ -24,6 +24,9 @@ let data = {
         {title:"Blue lagoon", image:"img/blue lagoon.webp"},
         {title:"Breakfast at Tiffany's", image:"img/breakfast-at-tiffanys.jpg"},
         {title:"Bright Eyes", image:"img/bright eyes.jpg"},
+        {title:"Carrie", image:"img/carrie.jpg"},
+        {title:"Casablanca", image:"img/casablanca.jpg"},
+        {title:"Christmas Vacation", image:"img/christmas_vacation.jpg"},
         {title:"Franse films", image:"img/franse_siemen.jfif"}
     ]
 };
